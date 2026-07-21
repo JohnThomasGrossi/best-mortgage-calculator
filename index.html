@@ -3,8 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Best Mortgage Calculator Ever</title>
+<title>Free Mortgage Calculator — Amortization, Extra Payments &amp; Refinance</title>
+<meta name="description" content="A free, fast mortgage calculator with a full amortization schedule, extra-payment savings, PMI and true monthly cost — plus refinance break-even, recast, biweekly, points, ARM, rent-vs-buy and affordability. Every number verified.">
+<link rel="canonical" href="https://honestmortgagemath.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0E7C7B">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🏠</text></svg>'>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Best Mortgage Calculator Ever">
+<meta property="og:title" content="Free Mortgage Calculator — every number verified">
+<meta property="og:description" content="Amortization, extra payments, refinance break-even, recast, biweekly, points, ARM, rent-vs-buy and affordability — in one fast, mobile-friendly calculator.">
+<meta property="og:url" content="https://honestmortgagemath.com/">
+<meta property="og:image" content="https://honestmortgagemath.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Best Mortgage Calculator Ever — a free mortgage calculator with verified math">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Mortgage Calculator — every number verified">
+<meta name="twitter:description" content="Amortization, extra payments, refinance, recast, biweekly, points, ARM, rent-vs-buy &amp; affordability — one fast calculator.">
+<meta name="twitter:image" content="https://honestmortgagemath.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Best Mortgage Calculator Ever","alternateName":"Honest Mortgage Math","url":"https://honestmortgagemath.com/","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free mortgage calculator with a full amortization schedule, extra-payment savings, PMI and total monthly cost, plus refinance break-even, recast, biweekly-vs-monthly, discount points, ARM scenarios, rent-vs-buy and affordability.","featureList":["Amortization schedule with LTV","Extra payments and payoff date","Full monthly cost (PITI, PMI, HOA)","Refinance break-even analysis","Mortgage recast","Biweekly vs monthly payoff","Discount points break-even","Adjustable-rate (ARM) scenarios","Rent vs buy with opportunity cost","Affordability by debt-to-income"]}
+</script>
 <style>
   /* ---------- Tokens ---------- */
   :root{
@@ -74,6 +96,20 @@
   .theme-btn:hover{border-color:var(--accent);color:var(--ink)}
   @media (max-width:760px){ .tagline{display:none} }
   @media (max-width:560px){ #shareLbl,#themeLbl{display:none} .brand{font-size:15px} .top-in{padding:12px 14px;gap:9px} .theme-btn{padding:7px 10px} }
+
+  /* ---------- FAQ (SEO content) ---------- */
+  .faq{max-width:1240px;margin:0 auto;padding:10px 22px 0}
+  .faq-in{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 26px}
+  .faq h2{font-size:20px;letter-spacing:-.01em}
+  .faq .faq-sub{color:var(--ink-3);font-size:13px;margin:5px 0 14px}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+  @media (max-width:760px){ .faq{padding:10px 16px 0} .faq-grid{grid-template-columns:1fr} }
+  .faq details{border-bottom:1px solid var(--line-2);padding:2px 0}
+  .faq summary{cursor:pointer;font-weight:600;font-size:14.5px;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';color:var(--accent);font-weight:700;font-size:19px;line-height:1}
+  .faq details[open] summary::after{content:'\2013'}
+  .faq details p{margin:0 0 13px;color:var(--ink-2);font-size:13.5px;line-height:1.6;max-width:62ch}
 
   main{max-width:1240px;margin:0 auto;padding:22px;display:grid;grid-template-columns:380px minmax(0,1fr);gap:22px;align-items:start}
   @media (max-width:920px){ main{grid-template-columns:minmax(0,1fr);padding:16px;gap:16px} }
@@ -815,6 +851,35 @@
     </div>
   </div>
 </section>
+
+<section class="faq" aria-label="Frequently asked questions">
+  <div class="faq-in">
+    <h2>Mortgage calculator FAQ</h2>
+    <p class="faq-sub">The math behind each tool, in plain English.</p>
+    <div class="faq-grid">
+      <details><summary>How is my monthly mortgage payment calculated?</summary><p>Your principal-and-interest payment uses the standard amortization formula: M = P·i(1+i)ⁿ ⁄ ((1+i)ⁿ−1), where P is the loan amount, i is your monthly interest rate (annual rate ÷ 12) and n is the number of months. This calculator then adds property tax, homeowners insurance, PMI and HOA to show your full monthly cost (PITI).</p></details>
+      <details><summary>How much do extra payments save?</summary><p>Every dollar paid above your scheduled payment goes straight to principal, so you owe interest on a smaller balance for the rest of the loan. Even $100–$200 a month can cut years off a 30-year mortgage and save tens of thousands in interest. The extra-payment slider shows your exact new payoff date and total interest saved.</p></details>
+      <details><summary>When does refinancing make sense?</summary><p>Refinancing pays off once your monthly savings have covered the closing costs — the "break-even" month. If you'll keep the home past that point, it's usually worth it; if you might move or refinance again sooner, it may not be. The Refinance tool shows the exact month you come out ahead.</p></details>
+      <details><summary>What is a mortgage recast?</summary><p>A recast (re-amortization) applies a lump sum to your principal and recalculates a lower monthly payment over the same remaining term, keeping your original payoff date and interest rate. It's far cheaper than refinancing — most calculators skip it entirely. The Recast tool also compares recasting against simply prepaying.</p></details>
+      <details><summary>Do biweekly payments pay off a mortgage faster?</summary><p>Yes. Paying half your monthly payment every two weeks makes 26 half-payments a year — the equivalent of one extra full payment — which typically shaves 4–6 years off a 30-year loan and saves significant interest, with no change to your budget beyond the calendar.</p></details>
+      <details><summary>Are mortgage points worth it?</summary><p>Discount points lower your interest rate but cost cash upfront (one point equals 1% of the loan). They pay off if you keep the loan past the break-even month, when the reduced payment has repaid the cost. If you might sell or refinance sooner, skip them. The Points tool finds your exact break-even.</p></details>
+      <details><summary>How much house can I afford?</summary><p>Lenders use debt-to-income ratios — commonly 28% of gross monthly income for housing and 36% for total debt (the "28/36 rule"). Enter your income, monthly debts and down payment in the Affordability tool to see a realistic maximum price, including taxes, insurance and PMI.</p></details>
+      <details><summary>Is it better to rent or buy?</summary><p>It depends on how long you'll stay, how fast the home appreciates, and what your down payment could earn if invested instead. The Rent vs Buy tool factors in that opportunity cost — not just the mortgage — to show the year buying actually pulls ahead of renting.</p></details>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How is my monthly mortgage payment calculated?","acceptedAnswer":{"@type":"Answer","text":"Your principal-and-interest payment uses the standard amortization formula M = P·i(1+i)^n / ((1+i)^n − 1), where P is the loan amount, i is your monthly interest rate (annual rate ÷ 12) and n is the number of months. The calculator then adds property tax, homeowners insurance, PMI and HOA to show your full monthly cost (PITI)."}},
+{"@type":"Question","name":"How much do extra payments save?","acceptedAnswer":{"@type":"Answer","text":"Every dollar paid above your scheduled payment goes straight to principal, so you owe interest on a smaller balance for the rest of the loan. Even $100–$200 a month can cut years off a 30-year mortgage and save tens of thousands in interest. The extra-payment slider shows your exact new payoff date and total interest saved."}},
+{"@type":"Question","name":"When does refinancing make sense?","acceptedAnswer":{"@type":"Answer","text":"Refinancing pays off once your monthly savings have covered the closing costs — the break-even month. If you will keep the home past that point it is usually worth it; if you might move or refinance again sooner it may not be. The Refinance tool shows the exact month you come out ahead."}},
+{"@type":"Question","name":"What is a mortgage recast?","acceptedAnswer":{"@type":"Answer","text":"A recast (re-amortization) applies a lump sum to your principal and recalculates a lower monthly payment over the same remaining term, keeping your original payoff date and interest rate. It is far cheaper than refinancing and most calculators skip it. The Recast tool also compares recasting against simply prepaying."}},
+{"@type":"Question","name":"Do biweekly payments pay off a mortgage faster?","acceptedAnswer":{"@type":"Answer","text":"Yes. Paying half your monthly payment every two weeks makes 26 half-payments a year — the equivalent of one extra full payment — which typically shaves 4–6 years off a 30-year loan and saves significant interest, with no change to your budget beyond the calendar."}},
+{"@type":"Question","name":"Are mortgage points worth it?","acceptedAnswer":{"@type":"Answer","text":"Discount points lower your interest rate but cost cash upfront (one point equals 1% of the loan). They pay off if you keep the loan past the break-even month, when the reduced payment has repaid the cost. If you might sell or refinance sooner, skip them. The Points tool finds your exact break-even."}},
+{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"Lenders use debt-to-income ratios — commonly 28% of gross monthly income for housing and 36% for total debt (the 28/36 rule). Enter your income, monthly debts and down payment in the Affordability tool to see a realistic maximum price, including taxes, insurance and PMI."}},
+{"@type":"Question","name":"Is it better to rent or buy?","acceptedAnswer":{"@type":"Answer","text":"It depends on how long you will stay, how fast the home appreciates, and what your down payment could earn if invested instead. The Rent vs Buy tool factors in that opportunity cost — not just the mortgage — to show the year buying actually pulls ahead of renting."}}
+]}
+</script>
 
 <div class="foot">
   <details class="raw"><summary>About the math</summary>
