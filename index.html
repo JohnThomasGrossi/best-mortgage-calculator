@@ -111,6 +111,16 @@
   .faq details[open] summary::after{content:'\2013'}
   .faq details p{margin:0 0 13px;color:var(--ink-2);font-size:13.5px;line-height:1.6;max-width:62ch}
 
+  /* ---------- Tool index (internal links to per-tool pages) ---------- */
+  .toolindex{max-width:1240px;margin:0 auto;padding:10px 22px 0}
+  .toolindex .ti-in{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 26px}
+  .toolindex h2{font-size:20px;letter-spacing:-.01em;margin-bottom:14px}
+  .ti-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  @media(max-width:760px){ .toolindex{padding:10px 16px 0} .ti-grid{grid-template-columns:1fr} }
+  .ti-grid a{display:block;background:var(--field);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:650;font-size:14.5px}
+  .ti-grid a:hover{border-color:var(--accent)}
+  .ti-grid a span{display:block;color:var(--ink-3);font-weight:400;font-size:12.5px;margin-top:3px}
+
   main{max-width:1240px;margin:0 auto;padding:22px;display:grid;grid-template-columns:380px minmax(0,1fr);gap:22px;align-items:start}
   @media (max-width:920px){ main{grid-template-columns:minmax(0,1fr);padding:16px;gap:16px} }
 
@@ -880,6 +890,20 @@
 {"@type":"Question","name":"Is it better to rent or buy?","acceptedAnswer":{"@type":"Answer","text":"It depends on how long you will stay, how fast the home appreciates, and what your down payment could earn if invested instead. The Rent vs Buy tool factors in that opportunity cost — not just the mortgage — to show the year buying actually pulls ahead of renting."}}
 ]}
 </script>
+
+<nav class="toolindex" aria-label="All calculators">
+  <div class="ti-in">
+    <h2>A dedicated calculator for every decision</h2>
+    <div class="ti-grid">
+      <a href="/mortgage-affordability-calculator/">Affordability<span>How much house can I afford?</span></a>
+      <a href="/refinance-calculator/">Refinance break-even<span>The month you recoup closing costs</span></a>
+      <a href="/mortgage-points-calculator/">Discount points<span>Are points worth buying?</span></a>
+      <a href="/mortgage-recast-calculator/">Recast<span>Lower payment, same term</span></a>
+      <a href="/biweekly-mortgage-calculator/">Biweekly vs monthly<span>Pay the loan off years early</span></a>
+      <a href="/rent-vs-buy-calculator/">Rent vs buy<span>With opportunity cost</span></a>
+    </div>
+  </div>
+</nav>
 
 <div class="foot">
   <details class="raw"><summary>About the math</summary>
@@ -2003,6 +2027,8 @@ function runVerificationV3(){
 }
 
 renderAfford(); renderPoints(); runVerificationV3();
+// deep-link: /?tool=recast opens that tab (used by the per-tool landing pages)
+(function(){ const tp=new URLSearchParams(location.search).get('tool'); if(tp && VIEW_EL[tp]) switchView(tp); })();
 </script>
 </body>
 </html>
