@@ -96,8 +96,8 @@
   .in-wrap .pre,.in-wrap .post{position:absolute;color:var(--ink-3);font-size:14px;pointer-events:none}
   .in-wrap .pre{left:12px}
   .in-wrap .post{right:12px}
-  input[type=text],input[type=number]{
-    width:100%;background:var(--field);border:1px solid var(--line);border-radius:var(--r);
+  input[type=text],input[type=number],.in-wrap input{
+    width:100%;box-sizing:border-box;background:var(--field);border:1px solid var(--line);border-radius:var(--r);
     padding:10px 12px;font:inherit;color:var(--ink);font-family:var(--mono);font-variant-numeric:tabular-nums;
   }
   input.has-pre{padding-left:24px}
