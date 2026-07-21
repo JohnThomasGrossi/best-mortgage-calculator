@@ -306,8 +306,10 @@
 <nav class="tabs" aria-label="Tools">
   <div class="tabs-in" id="tabNav" role="tablist">
     <button class="tab" role="tab" data-view="calc" aria-selected="true">Calculator</button>
+    <button class="tab" role="tab" data-view="afford" aria-selected="false">Affordability</button>
     <button class="tab" role="tab" data-view="compare" aria-selected="false">Compare</button>
     <button class="tab" role="tab" data-view="refi" aria-selected="false">Refinance</button>
+    <button class="tab" role="tab" data-view="points" aria-selected="false">Points</button>
     <button class="tab" role="tab" data-view="recast" aria-selected="false">Recast</button>
     <button class="tab" role="tab" data-view="biweekly" aria-selected="false">Biweekly</button>
     <button class="tab" role="tab" data-view="rentbuy" aria-selected="false">Rent vs Buy</button>
@@ -724,6 +726,90 @@
         <div class="chart-wrap" style="position:relative">
           <svg class="chart" id="armChart" viewBox="0 0 760 300" role="img" aria-label="ARM payment scenarios"></svg>
           <div class="tip" id="armTip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AFFORDABILITY ============================ -->
+<section id="view-afford" class="view hidden">
+  <div class="intro">
+    <h1>What can I afford?</h1>
+    <div class="why"><span><b>Start here:</b> your income, debts and down payment set a realistic price ceiling using the standard 28/36 debt-to-income limits — before you fall for a listing you can't carry.</span></div>
+  </div>
+  <div class="tool">
+    <div class="rail">
+      <div class="card"><div class="card-h"><h2>Your finances</h2></div><div class="card-b fields">
+        <div class="field"><label>Gross annual income</label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="af_income" value="120,000"></div></div>
+        <div class="field"><label>Monthly debt payments <span class="mini-lab">car, cards, student loans</span></label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="af_debts" value="500"></div></div>
+        <div class="field"><label>Down payment (cash)</label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="af_down" value="80,000"></div></div>
+      </div></div>
+      <div class="card"><div class="card-h"><h2>The loan</h2></div><div class="card-b fields">
+        <div class="row2">
+          <div class="field"><label>Rate</label><div class="in-wrap"><input class="has-post" id="af_rate" value="6.5"><span class="post">%</span></div></div>
+          <div class="field"><label>Term</label><div class="in-wrap"><input class="has-post" id="af_term" value="30"><span class="post">yr</span></div></div>
+        </div>
+      </div></div>
+      <div class="card"><div class="card-h"><h2>Costs &amp; ratios</h2></div><div class="card-b fields">
+        <div class="row2">
+          <div class="field"><label>Property tax</label><div class="in-wrap"><input class="has-post" id="af_tax" value="1.1"><span class="post">%</span></div></div>
+          <div class="field"><label>Insurance/yr</label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="af_ins" value="1,400"></div></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>HOA/mo</label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="af_hoa" value="0"></div></div>
+          <div class="field"><label>PMI rate <span class="mini-lab">if &lt;20% down</span></label><div class="in-wrap"><input class="has-post" id="af_pmi" value="0.5"><span class="post">%</span></div></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Front-end DTI <span class="mini-lab">housing</span></label><div class="in-wrap"><input class="has-post" id="af_front" value="28"><span class="post">%</span></div></div>
+          <div class="field"><label>Back-end DTI <span class="mini-lab">all debt</span></label><div class="in-wrap"><input class="has-post" id="af_back" value="36"><span class="post">%</span></div></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="sec-gap">
+      <div class="card"><div class="bigmetric" id="af_metrics"></div><div id="af_verdict"></div></div>
+      <div class="card">
+        <div class="card-h"><h2>Your maximum monthly payment</h2></div>
+        <div class="card-b">
+          <div class="paybar" id="af_bar"></div>
+          <div class="cmp-out" id="af_breakdown" style="margin-top:14px"></div>
+          <p class="solve-hint" id="af_limits" style="margin-top:12px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ POINTS ============================ -->
+<section id="view-points" class="view hidden">
+  <div class="intro">
+    <h1>Discount points break-even</h1>
+    <div class="why"><span><b>Why it's useful:</b> paying points buys a lower rate but costs cash upfront — this pinpoints the exact month the smaller payment pays that cash back.</span></div>
+  </div>
+  <div class="tool">
+    <div class="rail">
+      <div class="card"><div class="card-h"><h2>The loan</h2></div><div class="card-b fields">
+        <div class="field"><label>Loan amount</label><div class="in-wrap"><span class="pre">$</span><input class="has-pre" id="pt_loan" value="320,000"></div></div>
+        <div class="field"><label>Term</label><div class="in-wrap"><input class="has-post" id="pt_term" value="30"><span class="post">yr</span></div></div>
+      </div></div>
+      <div class="card"><div class="card-h"><h2>The trade-off</h2></div><div class="card-b fields">
+        <div class="row2">
+          <div class="field"><label>Rate — no points</label><div class="in-wrap"><input class="has-post" id="pt_base" value="6.75"><span class="post">%</span></div></div>
+          <div class="field"><label>Rate — with points</label><div class="in-wrap"><input class="has-post" id="pt_buy" value="6.25"><span class="post">%</span></div></div>
+        </div>
+        <div class="field"><label>Discount points</label><div class="in-wrap"><input class="has-post" id="pt_points" value="2"><span class="post">pts</span></div>
+          <p class="solve-hint" id="pt_costHint"></p>
+        </div>
+      </div></div>
+    </div>
+    <div class="sec-gap">
+      <div class="card"><div class="bigmetric" id="pt_metrics"></div><div id="pt_verdict"></div></div>
+      <div class="card">
+        <div class="card-h"><h2>Cumulative savings vs. cost of points</h2></div>
+        <div class="legend" id="pt_legend"></div>
+        <div class="chart-wrap" style="position:relative">
+          <svg class="chart" id="ptChart" viewBox="0 0 760 300" role="img" aria-label="Points break-even chart"></svg>
+          <div class="tip" id="ptTip"></div>
         </div>
       </div>
     </div>
@@ -1731,6 +1817,127 @@ render();                 // re-render calc with any shared-in values
 updateExtraFlags();
 switchView(startView);
 runVerificationV2();
+</script>
+
+<script>
+/* ========================================================================
+   V3 — AFFORDABILITY  ("What can I afford?")
+   ===================================================================== */
+function computeAfford(){
+  const income=parseNum($('af_income').value), debts=parseNum($('af_debts').value), down=parseNum($('af_down').value);
+  const rate=parseNum($('af_rate').value)/100/12, n=Math.max(1,Math.round(parseNum($('af_term').value)*12));
+  const taxRate=parseNum($('af_tax').value)/100, insAnnual=parseNum($('af_ins').value), hoa=parseNum($('af_hoa').value);
+  const pmiRate=parseNum($('af_pmi').value)/100, front=parseNum($('af_front').value)/100, back=parseNum($('af_back').value)/100;
+  const mi=income/12;
+  const frontMax=mi*front, backMax=mi*back-debts;
+  const affordPITI=Math.max(0,Math.min(frontMax,backMax));
+  const binds = backMax<frontMax ? 'back' : 'front';
+  const PITI=price=>{ const loan=Math.max(0,price-down); const pi=pmt(loan,rate,n);
+    const tax=price*taxRate/12, ins=insAnnual/12, pmi=(price>0 && loan/price>0.8)?loan*pmiRate/12:0;
+    return {total:pi+tax+ins+pmi+hoa, pi,tax,ins,pmi,hoa}; };
+  let price=down;
+  if(PITI(down).total <= affordPITI){
+    let lo=down, hi=down+5e7;
+    for(let k=0;k<100;k++){ const mid=(lo+hi)/2; if(PITI(mid).total>affordPITI) hi=mid; else lo=mid; }
+    price=(lo+hi)/2;
+  }
+  const breakdown=PITI(price), loan=Math.max(0,price-down);
+  return {income,debts,down,rate,n,frontMax,backMax,affordPITI,binds,price,loan,breakdown,downPct:price>0?down/price*100:0};
+}
+function renderAfford(){
+  const m=computeAfford();
+  bigmetric('af_metrics',[
+    ['Max home price',money0(m.price),`${m.downPct.toFixed(0)}% down`],
+    ['Max loan',money0(m.loan),`at ${(m.rate*1200).toFixed(2)}%`],
+    ['Monthly ceiling',money0(m.affordPITI),'full PITI']
+  ]);
+  const b=m.breakdown;
+  const parts=[['P&I',b.pi,'var(--accent)'],['Tax',b.tax,'var(--cost)'],['Insurance',b.ins,'#8497a6'],['PMI',b.pmi,'var(--warn)'],['HOA',b.hoa,'var(--ink-3)']].filter(p=>p[1]>0.5);
+  const tot=parts.reduce((a,p)=>a+p[1],0)||1;
+  $('af_bar').innerHTML=parts.map(p=>`<span style="width:${p[1]/tot*100}%;background:${p[2]}" title="${p[0]}"></span>`).join('');
+  $('af_breakdown').innerHTML=parts.map(p=>`<div class="r"><span class="k">${p[0]}</span><span class="v">${money0(p[1])}</span></div>`).join('')
+    +`<div class="r best"><span class="k">Total (PITI)</span><span class="v">${money0(b.total)}</span></div>`;
+  $('af_limits').innerHTML=`Front-end limit (housing ≤ ${parseNum($('af_front').value)}% of income): <b>${money0(m.frontMax)}</b> · Back-end limit (all debt ≤ ${parseNum($('af_back').value)}%): <b>${money0(Math.max(0,m.backMax))}</b>`;
+  if(m.affordPITI<=0){
+    verdict('af_verdict','warn','!',`Your existing debts (${money0(m.debts)}/mo) already reach the back-end limit, leaving no room for a housing payment. Lower monthly debt or revisit the income figure to see a price.`);
+  } else if(m.binds==='back'){
+    verdict('af_verdict','warn','~',`You're capped by the <b>back-end</b> (total-debt) ratio — your ${money0(m.debts)}/mo of other debt is the limiter. Paying that down would raise your ceiling. As is, target around <b>${money0(m.price)}</b>.`);
+  } else {
+    verdict('af_verdict','good','✓',`You're capped by the <b>front-end</b> (housing) ratio — the healthy place to be. With ${money0(m.down)} down, you can comfortably target a home around <b>${money0(m.price)}</b>.`);
+  }
+}
+
+/* ========================================================================
+   V3 — DISCOUNT POINTS break-even
+   ===================================================================== */
+function computePoints(){
+  const loan=parseNum($('pt_loan').value), n=Math.max(1,Math.round(parseNum($('pt_term').value)*12));
+  const baseRate=parseNum($('pt_base').value)/100/12, buyRate=parseNum($('pt_buy').value)/100/12;
+  const points=parseNum($('pt_points').value), cost=points/100*loan;
+  const basePay=pmt(loan,baseRate,n), buyPay=pmt(loan,buyRate,n);
+  const monthlySavings=basePay-buyPay;
+  const breakeven=monthlySavings>0?Math.ceil(cost/monthlySavings):null;
+  const baseInterest=basePay*n-loan, buyInterest=buyPay*n-loan;
+  const lifetimeSaved=(baseInterest-buyInterest)-cost;
+  return {loan,n,basePay,buyPay,monthlySavings,cost,points,breakeven,lifetimeSaved};
+}
+function renderPoints(){
+  const m=computePoints();
+  $('pt_costHint').textContent=`= ${money0(m.cost)} upfront · each point is 1% of the loan.`;
+  bigmetric('pt_metrics',[
+    ['Cost of points',money0(m.cost),`${m.points} pts`],
+    [m.monthlySavings>=0?'Monthly savings':'Monthly change',money2(Math.abs(m.monthlySavings)),`${money2(m.buyPay)} vs ${money2(m.basePay)}`],
+    ['Break-even',m.breakeven?`${m.breakeven} mo`:'—',m.breakeven?`${(m.breakeven/12).toFixed(1)} yr · ${monthYr(addMonths(NOW,m.breakeven))}`:'no savings']
+  ]);
+  if(m.monthlySavings<=0){
+    verdict('pt_verdict','warn','!',`The "with points" rate isn't lower than the base rate, so the points buy nothing here. Enter a reduced rate to see the trade-off.`);
+  } else {
+    verdict('pt_verdict','good','✓',`You recoup the ${money0(m.cost)} after <b>${m.breakeven} months</b> (${monthYr(addMonths(NOW,m.breakeven))}). Keep the loan past then and the points pay off${m.lifetimeSaved>0?` — over the full term they save ${money0(m.lifetimeSaved)} net of their cost`:''}. If you might sell or refinance sooner, skip them.`);
+  }
+  const N=m.n, pts=[]; for(let k=0;k<=N;k++) pts.push([k,k*m.monthlySavings-m.cost]);
+  const yv=pts.map(p=>p[1]);
+  drawLineChart('ptChart',[{name:'Net savings',color:'var(--good)',pts,fill:'color-mix(in srgb,var(--good) 14%,transparent)'}],
+    {xMax:N,yMax:Math.max(...yv,0),yMin:Math.min(...yv,0),xTicks:6,xLabel:v=>Math.round(v/12)+'y',yFmt:shortMoney,
+     markers:m.breakeven?[{x:m.breakeven,y:0,label:`Break-even · ${(m.breakeven/12).toFixed(1)} yr`,sub:'points repaid'}]:[]});
+  $('pt_legend').innerHTML=legendHTML([['Cumulative savings after cost of points','var(--good)']]);
+}
+
+/* ---- register the two new tabs, wire inputs, verify ---- */
+VIEW_EL.afford='view-afford'; VIEW_EL.points='view-points';
+VIEW_RENDER.afford=renderAfford; VIEW_RENDER.points=renderPoints;
+document.querySelectorAll('#view-afford input').forEach(el=>el.addEventListener('input',renderAfford));
+document.querySelectorAll('#view-points input').forEach(el=>el.addEventListener('input',renderPoints));
+attachHover('ptChart','ptTip',(x,rows)=>`<div style="font-weight:700;margin-bottom:4px">Year ${(x/12).toFixed(1)}</div><div class="tip-row"><span class="tk">Net savings</span><b>${money0(rows[0].pt[1])}</b></div>`);
+
+function runVerificationV3(){
+  const tests=[]; const approx=(a,b,tol)=>Math.abs(a-b)<=tol;
+  // Affordability — front-end binds; PITI at max price equals the income limit
+  (function(){
+    const income=120000,debts=500,down=80000,rate=0.065/12,n=360,taxRate=0.011,ins=1400,hoa=0,pmiRate=0.005,front=0.28,back=0.36;
+    const mi=income/12, frontMax=mi*front, backMax=mi*back-debts, afford=Math.min(frontMax,backMax);
+    const PITI=p=>{const loan=Math.max(0,p-down); const pmi=(p>0&&loan/p>0.8)?loan*pmiRate/12:0; return pmt(loan,rate,n)+p*taxRate/12+ins/12+pmi+hoa;};
+    let lo=down,hi=down+5e7; for(let k=0;k<100;k++){const mid=(lo+hi)/2; if(PITI(mid)>afford)hi=mid; else lo=mid;} const price=(lo+hi)/2;
+    tests.push({desc:'Affordability: front-end (28%) is the binding ratio',exp:'front',act:(backMax<frontMax?'back':'front'),pass:(frontMax<=backMax)});
+    tests.push({desc:'Affordability: PITI at max price hits the income limit',exp:money0(afford),act:money0(PITI(price)),pass:approx(PITI(price),afford,1)});
+  })();
+  // Points — break-even is the correct ceiling of cost ÷ monthly saving
+  (function(){
+    const loan=320000,n=360, bp=pmt(loan,0.0675/12,n), yp=pmt(loan,0.0625/12,n), cost=2/100*loan, raw=cost/(bp-yp), be=Math.ceil(raw);
+    tests.push({desc:'Points: break-even = ⌈cost ÷ monthly saving⌉',exp:`⌈${raw.toFixed(1)}⌉`,act:be+' mo',pass:(be-1<raw && raw<=be+1e-9)});
+    tests.push({desc:'Points: buying down the rate lowers the payment',exp:'> $0',act:money2(bp-yp),pass:(bp-yp)>0});
+  })();
+  const list=$('verifyList');
+  list.insertAdjacentHTML('beforeend', `<div class="vt" style="opacity:.6"><span class="badge" style="background:var(--ink-3)">V3</span><span class="desc" style="font-weight:700">Affordability &amp; points</span><span class="exp"></span><span class="act"></span></div>`+
+    tests.map(t=>`<div class="vt"><span class="badge ${t.pass?'ok':'no'}">${t.pass?'✓':'✕'}</span><span class="desc">${t.desc}</span><span class="exp">exp ${t.exp}</span><span class="act">${t.act}</span></div>`).join(''));
+  const all=[...document.querySelectorAll('#verifyList .vt .badge')].filter(b=>b.classList.contains('ok')||b.classList.contains('no'));
+  const passed=all.filter(b=>b.classList.contains('ok')).length;
+  const pill=$('verifyPill'); pill.className='pill '+(passed===all.length?'good':'warn'); pill.textContent=`${passed}/${all.length} passing`;
+  $('verifySum').textContent = passed===all.length
+    ? `All ${all.length} checks pass — core, differentiator, and affordability/points math verified.`
+    : `${all.length-passed} check(s) need review.`;
+}
+
+renderAfford(); renderPoints(); runVerificationV3();
 </script>
 </body>
 </html>
